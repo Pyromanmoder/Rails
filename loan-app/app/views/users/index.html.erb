@@ -1,0 +1,17 @@
+<h1><%= @admin_user %></h1>
+<table border = "2">
+	<tr>
+		<td>id</td><td>name</td><td>last name</td>
+	</tr>
+	<% @user_hash.each do |user| %>
+	<tr>
+		<td><%= user[:id]%></td>
+		<td><%= user[:name]%></td>
+		<td><%= user[:lastname]%></td>
+	</tr>
+	<% end %>
+
+</table>
+<%= will_paginate @user_hash %>
+
+
