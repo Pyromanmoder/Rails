@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
   def index
-  	@user_hash = User.paginate(per_page: 5, page: params[:page])
-  	@admin_user = params[:name] 
+  	@user_hash = User.order(params[:sort]).paginate(per_page: 5, page: params[:page])
+    if params[:sort].nil?
+      @sort = "created_at"
+    else
+      @sort = params[:sort]
+    end
+  	@admin_user = params[:name]
 
   end
 
@@ -14,6 +19,11 @@ class UsersController < ApplicationController
 
   def create
   	  @user = User.create(name: params[:user][:name], lastname: params[:user][:lastname])
-  	  redirect_to user_path(@user)
+      if @user.errors.empty?
+        redirect_to "index"
+      else
+        render "new"
+      end
+  	  
   end
 end
