@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180527092426) do
+ActiveRecord::Schema.define(version: 20180610094145) do
 
   create_table "loans", force: :cascade do |t|
     t.string   "giver"
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20180527092426) do
     t.string   "name"
     t.string   "lastname"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "password_diegest"
   end
 
 end
