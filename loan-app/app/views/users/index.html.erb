@@ -1,6 +1,6 @@
 <h1><%= @admin_user %></h1>
 <p><%= link_to "By name", users_path(sort: "name") %></p>
-<table border = "2">
+<table class = "table table-striped">
 	<tr>
 		<td>id</td><td>name<%= link_to "↑", users_path(sort: "name ASC") %><%= link_to "↓", users_path(sort: "name DESC") %></td><td>last name<%= link_to "↑", users_path(sort: "lastname ASC") %><%= link_to "↓", users_path(sort: "lastname DESC") %></td>
 	</tr>
