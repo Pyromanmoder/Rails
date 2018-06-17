@@ -1,16 +1,9 @@
-<% if @user.errors.any? %>
-	<div class="alert alert-warning alert-dismissable">
-		<a class="close" href="#" data-dismiss="alert">&times</a>
-		<ul>
-			<% @user.errors.full_messages.each do |m| %>
-			<li><%= m %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
+<%= render "layouts/errors" %>
 <%= form_for @user do |f| %>
 	<%= f.text_field :name %>
 	<%= f.text_field :lastname %>
+	<%= f.text_field :password %>
+	<%= f.text_field :password_confirmation %>
 	<%= f.submit %>
 
 <% end %>
